@@ -23,7 +23,7 @@ jobs:
           cache: npm
 
       - name: Install
-        run: npm сi
+        run: npm ci
       - name: Build_Jungle_UI
         run: npm run build-jungle-ui
       - name: Build_UI
