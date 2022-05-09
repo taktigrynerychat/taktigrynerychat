@@ -1,20 +1,20 @@
 {
   "projectType": "application",
-  "sourceRoot": "apps/test/src",
+  "sourceRoot": "apps/ui/src",
   "prefix": "taktigrynerychat",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/test",
-        "index": "apps/test/src/index.html",
-        "main": "apps/test/src/main.ts",
-        "polyfills": "apps/test/src/polyfills.ts",
-        "tsConfig": "apps/test/tsconfig.app.json",
+        "outputPath": "dist/apps/ui",
+        "index": "apps/ui/src/index.html",
+        "main": "apps/ui/src/main.ts",
+        "polyfills": "apps/ui/src/polyfills.ts",
+        "tsConfig": "apps/ui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/test/src/favicon.ico", "apps/test/src/assets"],
-        "styles": ["apps/test/src/styles.scss"],
+        "assets": ["apps/ui/src/favicon.ico", "apps/ui/src/assets"],
+        "styles": ["apps/ui/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -33,8 +33,8 @@
           ],
           "fileReplacements": [
             {
-              "replace": "apps/test/src/environments/environment.ts",
-              "with": "apps/test/src/environments/environment.prod.ts"
+              "replace": "apps/ui/src/environments/environment.ts",
+              "with": "apps/ui/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -54,10 +54,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "test:build:production"
+          "browserTarget": "ui:build:production"
         },
         "development": {
-          "browserTarget": "test:build:development"
+          "browserTarget": "ui:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -65,20 +65,20 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "test:build"
+        "browserTarget": "ui:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/test/**/*.ts", "apps/test/**/*.html"]
+        "lintFilePatterns": ["apps/ui/**/*.ts", "apps/ui/**/*.html"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/test"],
+      "outputs": ["coverage/apps/ui"],
       "options": {
-        "jestConfig": "apps/test/jest.config.ts",
+        "jestConfig": "apps/ui/jest.config.ts",
         "passWithNoTests": true
       }
     }
