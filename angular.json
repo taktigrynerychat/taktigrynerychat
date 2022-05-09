@@ -43,13 +43,7 @@
       },
       "tags": []
     },
-    "ui": {
-      "projectType": "application",
-      "root": "apps/ui"
-    },
-    "ui-e2e": {
-      "projectType": "application",
-      "root": "apps/ui-e2e"
-    }
+    "ui": "apps/ui",
+    "ui-e2e": "apps/ui-e2e"
   }
 }
