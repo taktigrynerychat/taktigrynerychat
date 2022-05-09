@@ -22,7 +22,8 @@ jobs:
           node-version: ${{env.node_version}}
           cache: npm
 
-
+      - name: Install
+        run: npm i
       - name: Build
         run: npm run build
 
