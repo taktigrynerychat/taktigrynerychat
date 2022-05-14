@@ -1,2 +1,2 @@
 export * from "./button.component";
-export * from "./jui-button.module";
+export * from "./button.module";
