@@ -5,7 +5,7 @@
       "projectType": "library",
       "root": "libs/jungle-ui",
       "sourceRoot": "libs/jungle-ui/src",
-      "prefix": "jun" ,
+      "prefix": "jun",
       "targets": {
         "build": {
           "executor": "@nrwl/angular:package",
