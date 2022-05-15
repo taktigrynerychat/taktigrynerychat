@@ -1,15 +1,13 @@
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject, Input, OnChanges, OnInit, Self, SimpleChanges } from '@angular/core';
-import { BehaviorSubject, takeUntil } from 'rxjs';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { debounceTime, filter, skip, tap } from 'rxjs/operators';
 import { JUI_DEFAULT_THEME_TOKEN, JUI_THEMES_TOKEN, JuiThemes } from './theme-switcher.config';
-import { JuiSubscribeControl } from '../../tools/subscribe-control';
 
 @Component({
   selector: 'jui-theme-switcher',
   template: '',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [JuiSubscribeControl],
 })
 export class JuiThemeSwitcherComponent implements OnChanges, OnInit {
   @Input()
@@ -31,7 +29,6 @@ export class JuiThemeSwitcherComponent implements OnChanges, OnInit {
     @Inject(DOCUMENT) private readonly document: Document,
     @Inject(JUI_THEMES_TOKEN) private readonly themes: Map<JuiThemes | number, string>,
     @Inject(JUI_DEFAULT_THEME_TOKEN) private readonly defaultTheme: JuiThemes | number,
-    @Self() private readonly destroy$: JuiSubscribeControl,
   ) {
   }
 
@@ -59,7 +56,7 @@ export class JuiThemeSwitcherComponent implements OnChanges, OnInit {
   private addTransition(): void {
     this.themeChange$
       .pipe(
-        takeUntil(this.destroy$),
+        // TODO: Add takeUntil()
         filter((hasChanged: boolean) => hasChanged),
         skip(1),
         tap(() => {
