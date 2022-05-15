@@ -8,7 +8,6 @@ export class JuiSubscribeControl extends Subject<void> implements OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    console.log('destroy');
     this.next();
     this.complete();
   }
