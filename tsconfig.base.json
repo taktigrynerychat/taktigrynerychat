@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@taktigrynerychat/jungle-ui": ["libs/jungle-ui/src/index.ts"]
+      "@jungle-ui/kit": ["libs/jungle-ui"],
+      "@jungle-ui/kit/*": ["libs/jungle-ui/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
