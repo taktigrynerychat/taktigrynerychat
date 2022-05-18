@@ -22,16 +22,20 @@ jobs:
           node-version: ${{env.node_version}}
           cache: npm
 
-      - name: Install
+      - name: Install Project Dependencies
         run: npm ci
-      - name: Test_Jungle_UI
+
+      - name: Test Jungle-UI
         run: npm run test-coverage:jungle-ui
-      - name: Build_Jungle_UI
-        run: npm run build-jungle-ui
-      - name: Build_UI
-        run: npm run build-ui
-      - name: Test_UI
+
+      - name: Build Jungle-UI
+        run: npm run build:jungle-ui
+
+      - name: Test UI
         run: npm run test-coverage:ui
+
+      - name: Build UI
+        run: npm run build:ui
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
