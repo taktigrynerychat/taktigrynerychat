@@ -28,6 +28,7 @@ module.exports = {
   collectCoverageFrom: [
     '**/*.{ts,js}',
     '!**/index.ts',
+    '!**/_spec/*',
     '!**/*.{module,config,model}.ts',
   ],
 };

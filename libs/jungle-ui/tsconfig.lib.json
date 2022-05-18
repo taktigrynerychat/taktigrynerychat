@@ -10,7 +10,8 @@
   "exclude": [
     "test-setup.ts",
     "**/*.spec.ts",
-    "**/*.test.ts"
+    "**/*.test.ts",
+    "**/_spec/*"
   ],
   "include": ["**/*.ts"]
 }

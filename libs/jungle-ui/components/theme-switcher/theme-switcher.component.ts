@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime, filter, skip, tap } from 'rxjs/operators';
 import { JUI_DEFAULT_THEME_TOKEN, JUI_THEMES_TOKEN, JuiThemes } from './theme-switcher.config';
@@ -21,7 +22,7 @@ export class JuiThemeSwitcherComponent implements OnChanges, OnInit {
   private readonly themeChange$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
 
-  private get wrapperElement(): HTMLElement {
+  public get wrapperElement(): HTMLElement {
     return this.document.querySelector(this.themedWrapperSelector);
   }
 
@@ -33,14 +34,16 @@ export class JuiThemeSwitcherComponent implements OnChanges, OnInit {
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    if (changes['theme'].currentValue != null && changes['theme'].currentValue !== this.currentTheme) {
-      const currentThemeClass: string = this.getThemeClass(this.theme);
+    const theme: JuiThemes | number = changes['theme']?.currentValue;
+
+    if (theme !== null && theme !== this.currentTheme) {
+      const currentThemeClass: string = this.getThemeClass(theme);
       if (currentThemeClass) {
         this.transition && this.themeChange$.next(true);
         this.wrapperElement.setAttribute('data-jui-theme', currentThemeClass);
         this.currentTheme = this.theme;
       } else {
-        console.warn(`There is no theme with ID:${ this.theme } in provided themes map`);
+        console.warn(`There is no theme with ID:${ theme } in provided themes map`);
       }
     }
   }
