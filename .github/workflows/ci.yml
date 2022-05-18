@@ -37,11 +37,26 @@ jobs:
       - name: Build UI
         run: npm run build:ui
 
-      - name: SonarCloud Scan
+      - name: SonarCloud Scan UI
         uses: SonarSource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.javascript.lcov.reportPaths=coverage/apps/ui/lcov.info
+            -Dsonar.typescript.tsconfigPath=apps/ui/tsconfig.app.json
+            -Dsonar.sources=apps/ui/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+      - name: SonarCloud Scan Jungle-UI
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.javascript.lcov.reportPaths=coverage/libs/jungle-ui/lcov.info
+            -Dsonar.typescript.tsconfigPath=libs/jungle-ui/tsconfig.lib.json
+            -Dsonar.sources=libs/jungle-ui/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 
