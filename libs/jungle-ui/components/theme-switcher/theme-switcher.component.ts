@@ -18,7 +18,7 @@ export class JuiThemeSwitcherComponent implements OnChanges, OnInit {
   public transition: number = 0;
 
   private currentTheme: JuiThemes | number;
-  private themeChange$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private readonly themeChange$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
 
   private get wrapperElement(): HTMLElement {
