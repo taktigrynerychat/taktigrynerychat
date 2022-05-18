@@ -10,6 +10,10 @@ export class AppComponent implements OnInit{
   flag: boolean = true;
 
   public ngOnInit(): void {
-    console.log("Hello");
+    this.title = 'hello';
+  }
+
+  public untestedFunction(): void {
+    this.title = 'not hello';
   }
 }
