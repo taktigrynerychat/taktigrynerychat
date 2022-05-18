@@ -22,14 +22,52 @@
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
-      "rules": {}
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": "tsconfig.json",
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        // строгая типизация для переменных
+        "@typescript-eslint/typedef": [
+          "error",
+          {
+            "arrowParameter": true,
+            "variableDeclaration": true,
+            "memberVariableDeclaration": true,
+            "parameter": true
+          }
+        ],
+        // строгая типизация для функций
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": true
+          }
+        ],
+        // одинарные ковычки
+        "quotes": [
+          "error",
+          "single"
+        ],
+        // не используем var
+        "no-var": "error",
+        // висячие запятые в многострочных списках
+        "comma-dangle": [
+          "error",
+          "always-multiline"
+        ],
+        // точка с запятой в конце выражения
+        "semi": [
+          "error",
+          "always"
+        ],
+        "@angular-eslint/no-empty-lifecycle-method": "off"
+      }
     }
   ]
 }

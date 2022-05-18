@@ -7,9 +7,13 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
     "build": "nx build",
-    "build-ui": "nx build ui", 
-    "build-jungle-ui": "nx build jungle-ui",
-    "test": "nx test"
+    "test": "nx test",
+    "build:ui": "nx build ui",
+    "build:jungle-ui": "nx build jungle-ui",
+    "test-coverage:ui": "nx test ui --coverage --config ./apps/ui/jest.config.ts",
+    "test-coverage:ui:changed": "nx test ui --coverage --onlyChanged --config ./apps/ui/jest.config.ts",
+    "test-coverage:jungle-ui": "nx test jungle-ui --coverage --config ./libs/jungle-ui/jest.config.ts",
+    "test-coverage:jungle-ui:changed": "nx test jungle-ui --coverage --onlyChanged --config ./libs/jungle-ui/jest.config.ts"
   },
   "private": true,
   "dependencies": {
