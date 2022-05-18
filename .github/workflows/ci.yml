@@ -24,10 +24,14 @@ jobs:
 
       - name: Install
         run: npm ci
+      - name: Test_Jungle_UI
+        run: npm run test-coverage:jungle-ui
       - name: Build_Jungle_UI
         run: npm run build-jungle-ui
       - name: Build_UI
         run: npm run build-ui
+      - name: Test_UI
+        run: npm run test-coverage:ui
 
 
 

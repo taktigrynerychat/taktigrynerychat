@@ -18,4 +18,9 @@ module.exports = {
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
+  collectCoverageFrom: [
+    '**/*.{ts,js}',
+    '!**/index.ts',
+    '!**/*.{module,config,model}.ts',
+  ],
 };
