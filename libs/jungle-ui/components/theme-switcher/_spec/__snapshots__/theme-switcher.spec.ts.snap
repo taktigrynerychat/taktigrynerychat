@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JuiThemeSwitcherComponent [Function: ngOnChanges()] Should change theme if new value is different and presented in a themes array 1`] = `
+Array [
+  "data-jui-theme",
+  "dark",
+]
+`;

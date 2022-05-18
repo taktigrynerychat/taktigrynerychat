@@ -1,4 +1,4 @@
-type MockOf<T> = { [key in keyof T]?: unknown };
+type MockOf<T, R = any> = { [key in keyof T]?: R };
 
 export {
   MockOf,

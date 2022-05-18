@@ -4,6 +4,7 @@ import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core
 import { JuiThemeSwitcherComponent } from '../theme-switcher.component';
 import { mockChanges, mockEmptyChanges, mockHtmlElement, mockTransition, mockWrongChanges } from './theme-switcher.set';
 import SpyInstance = jest.SpyInstance;
+import Mock = jest.Mock;
 
 describe('JuiThemeSwitcherComponent', () => {
   let component: JuiThemeSwitcherComponent;
@@ -86,11 +87,19 @@ describe('JuiThemeSwitcherComponent', () => {
       expect(spyWarn).toHaveBeenCalledWith(`There is no theme with ID:${ mockWrongChanges['theme'].currentValue } in provided themes map`);
     });
 
-    it('Shouldn change theme if new value is null', () => {
+    it('Shouldn\'t change theme if new value is null', () => {
       const spyWrapperElement: SpyInstance = jest.spyOn(component, 'wrapperElement', 'get');
       component.ngOnChanges(mockEmptyChanges);
 
       expect(spyWrapperElement).not.toHaveBeenCalled();
+    });
+
+    it('Should change theme if new value is different and presented in a themes array', () => {
+      const spyWrapperElement: SpyInstance = jest.spyOn(component, 'wrapperElement', 'get').mockReturnValue(mockHtmlElement as HTMLElement);
+      component.ngOnChanges(mockChanges);
+
+      expect(spyWrapperElement).toHaveBeenCalled();
+      expect(mockHtmlElement.setAttribute.mock.calls[0]).toMatchSnapshot();
     });
   });
 

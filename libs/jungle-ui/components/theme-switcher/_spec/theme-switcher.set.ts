@@ -1,8 +1,8 @@
 import { SimpleChange, SimpleChanges } from '@angular/core';
 // TODO: Move package to testing library
 import { MockOf } from '../../../testing';
-
 import { JuiThemes } from '../theme-switcher.config';
+import Mock = jest.Mock;
 
 const mockHtmlElement: MockOf<HTMLElement> = {
   setAttribute: jest.fn(),
