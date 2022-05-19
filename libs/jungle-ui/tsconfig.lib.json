@@ -11,7 +11,9 @@
     "test-setup.ts",
     "**/*.spec.ts",
     "**/*.test.ts",
-    "**/_spec/*"
+    "**/_spec/*",
+    "**/*.stories.ts",
+    "**/*.stories.js"
   ],
   "include": ["**/*.ts"]
 }

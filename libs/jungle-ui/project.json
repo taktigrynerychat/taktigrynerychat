@@ -1,14 +1,11 @@
 {
   "projectType": "library",
-  "root": "libs/jungle-ui",
   "sourceRoot": "libs/jungle-ui/src",
   "prefix": "jun",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": [
-        "dist/libs/jungle-ui"
-      ],
+      "outputs": ["dist/libs/jungle-ui"],
       "options": {
         "project": "libs/jungle-ui/ng-package.json"
       },
@@ -24,9 +21,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/jungle-ui"
-      ],
+      "outputs": ["coverage/libs/jungle-ui"],
       "options": {
         "jestConfig": "libs/jungle-ui/jest.config.ts",
         "passWithNoTests": true
@@ -39,6 +34,47 @@
           "libs/jungle-ui/**/*.ts",
           "libs/jungle-ui/**/*.html"
         ]
+      }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "styles": ["libs/jungle-ui/styles/cap-ng-global.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/jungle-ui/styles/cap-ng-global.scss"]
+        },
+        "uiFramework": "@storybook/angular",
+        "port": 4400,
+        "config": {
+          "configFolder": "libs/jungle-ui/.storybook"
+        },
+        "projectBuildConfig": "jungle-ui:build-storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "styles": ["libs/jungle-ui/styles/cap-ng-global.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/jungle-ui/styles/cap-ng-global.scss"]
+        },
+        "uiFramework": "@storybook/angular",
+        "outputPath": "dist/storybook/jungle-ui",
+        "config": {
+          "configFolder": "libs/jungle-ui/.storybook"
+        },
+        "projectBuildConfig": "jungle-ui:build-storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
       }
     }
   },

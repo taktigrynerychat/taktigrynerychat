@@ -13,7 +13,9 @@
     "test-coverage:ui": "nx test ui --coverage --config ./apps/ui/jest.config.ts",
     "test-coverage:ui:changed": "nx test ui --coverage --onlyChanged --config ./apps/ui/jest.config.ts",
     "test-coverage:jungle-ui": "nx test jungle-ui --coverage --config ./libs/jungle-ui/jest.config.ts",
-    "test-coverage:jungle-ui:changed": "nx test jungle-ui --coverage --onlyChanged --config ./libs/jungle-ui/jest.config.ts"
+    "test-coverage:jungle-ui:changed": "nx test jungle-ui --coverage --onlyChanged --config ./libs/jungle-ui/jest.config.ts",
+    "storybook:jungle-ui": "nx storybook jungle-ui",
+    "build:storybook:jungle-ui": "nx build-storybook jungle-ui --coverage --onlyChanged --config ./libs/jungle-ui/jest.config.ts"
   },
   "private": true,
   "dependencies": {
@@ -44,7 +46,13 @@
     "@nrwl/jest": "14.1.4",
     "@nrwl/linter": "14.1.4",
     "@nrwl/nx-cloud": "latest",
+    "@nrwl/storybook": "^14.1.7",
     "@nrwl/workspace": "14.1.4",
+    "@storybook/addon-essentials": "~6.4.12",
+    "@storybook/angular": "~6.4.12",
+    "@storybook/builder-webpack5": "~6.4.12",
+    "@storybook/core-server": "~6.4.12",
+    "@storybook/manager-webpack5": "~6.4.12",
     "@types/jest": "27.4.1",
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "~5.18.0",
@@ -64,6 +72,7 @@
     "prettier": "^2.5.1",
     "ts-jest": "27.1.4",
     "ts-node": "9.1.1",
-    "typescript": "~4.6.2"
+    "typescript": "~4.6.2",
+    "webpack": "^5.64.0"
   }
 }

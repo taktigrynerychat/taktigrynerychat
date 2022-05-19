@@ -1,0 +1,22 @@
+@import 'variables';
+
+@mixin themify($themes: $themes) {
+  @each $theme, $map in $themes {
+    & *[data-jui-theme=#{$theme}] {
+      @each $key, $value in $map {
+        --jui-#{$key}: #{$value};
+      }
+    }
+  }
+}
+
+@mixin theme-color-vars($theme, $themes: $themes) {
+    @each $key, $value in map-get($themes, $theme) {
+      --jui-#{$key}: #{$value};
+    }
+}
+
+:root {
+  @include theme-color-vars(light);
+  @include themify($themes);
+}

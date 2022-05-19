@@ -1,0 +1,21 @@
+@import 'theme/variables';
+@import 'theme/themes';
+
+* {
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--jui-background-color);
+  color: var(--jui-font-color);
+}
