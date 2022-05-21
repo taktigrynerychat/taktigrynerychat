@@ -8,14 +8,20 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
+    "*** Build ***": "",
     "build:ui": "nx build ui",
     "build:jungle-ui": "nx build jungle-ui",
+    "*** Test ***": "",
     "test-coverage:ui": "nx test ui --coverage --config ./apps/ui/jest.config.ts",
     "test-coverage:ui:changed": "nx test ui --coverage --onlyChanged --config ./apps/ui/jest.config.ts",
     "test-coverage:jungle-ui": "nx test jungle-ui --coverage --config ./libs/jungle-ui/jest.config.ts",
     "test-coverage:jungle-ui:changed": "nx test jungle-ui --coverage --onlyChanged --config ./libs/jungle-ui/jest.config.ts",
+    "*** Storybook ***": "",
     "storybook:jungle-ui": "nx storybook jungle-ui",
-    "build:storybook:jungle-ui": "nx build-storybook jungle-ui --coverage --onlyChanged --config ./libs/jungle-ui/jest.config.ts"
+    "build:storybook:jungle-ui": "nx build-storybook jungle-ui --coverage --onlyChanged --config ./libs/jungle-ui/jest.config.ts",
+    "*** CI ***": "",
+    "affected:test:coverage": "nx affected --target test --coverage --parallel",
+    "affected:build": "nx affected --target build --parallel"
   },
   "private": true,
   "dependencies": {
