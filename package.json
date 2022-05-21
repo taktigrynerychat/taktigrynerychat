@@ -12,8 +12,8 @@
     "build:ui": "nx build ui",
     "build:jungle-ui": "nx build jungle-ui",
     "*** Analyze ***": "",
-    "analyze:ui": "nx build ui --stats-json",
-    "analyze:jungle-ui": "nx build jungle-ui --stats-json",
+    "analyze:ui": "nx build ui --stats-json && webpack-bundle-analyzer dist/apps/ui/stats.json",
+    "analyze:jungle-ui": "nx build jungle-ui --stats-json && webpack-bundle-analyzer dist/libs/jungle-ui/stats.json",
     "*** Test ***": "",
     "test-coverage:ui": "nx test ui --coverage --config ./apps/ui/jest.config.ts",
     "test-coverage:ui:changed": "nx test ui --coverage --onlyChanged --config ./apps/ui/jest.config.ts",
@@ -86,7 +86,7 @@
     "ts-jest": "27.1.4",
     "ts-node": "9.1.1",
     "typescript": "~4.6.2",
-    "webpack": "^5.64.0"
+    "webpack": "^5.64.0",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }
-
