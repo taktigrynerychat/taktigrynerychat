@@ -19,6 +19,9 @@ jobs:
       - name: Setup Node.js and Cache
         uses: ./.github/actions/nodejs
 
+      - name: Derive appropriate SHAs for base and head for nx affected commands
+        uses: nrwl/nx-set-shas@v2
+
       - name: Build Affected Apps
         run: npm run affected:build
 
