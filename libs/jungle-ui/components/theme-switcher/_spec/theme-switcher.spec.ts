@@ -4,7 +4,6 @@ import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core
 import { JuiThemeSwitcherComponent } from '../theme-switcher.component';
 import { mockChanges, mockEmptyChanges, mockHtmlElement, mockTransition, mockWrongChanges } from './theme-switcher.set';
 import SpyInstance = jest.SpyInstance;
-import Mock = jest.Mock;
 
 describe('JuiThemeSwitcherComponent', () => {
   let component: JuiThemeSwitcherComponent;
@@ -25,6 +24,7 @@ describe('JuiThemeSwitcherComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(JuiThemeSwitcherComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
     document = TestBed.inject(DOCUMENT);
   });
 
