@@ -23,22 +23,24 @@ jobs:
         uses: nrwl/nx-set-shas@v2
 
       - name: Build Affected Apps
-        run: npm run affected:build
+        run: npm run affected:build --base=${{ env.NX_BASE }}
 
   test:
     name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js and Cache
+        uses: ./.github/actions/nodejs
+
+      - name: Derive appropriate SHAs for base and head for nx affected commands
+        uses: nrwl/nx-set-shas@v2
 
       - name: Test Affected Apps
-        run: npm run affected:test:coverage
-
-  sonarcloud:
-    name: SonarCloud Scan
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+        run: npm run affected:test:coverage --base=${{ env.NX_BASE }}
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
