@@ -16,12 +16,16 @@
     "test-coverage:ui:changed": "nx test ui --coverage --onlyChanged --config ./apps/ui/jest.config.ts",
     "test-coverage:jungle-ui": "nx test jungle-ui --coverage --config ./libs/jungle-ui/jest.config.ts",
     "test-coverage:jungle-ui:changed": "nx test jungle-ui --coverage --onlyChanged --config ./libs/jungle-ui/jest.config.ts",
+    "*** lint ***": "",
+    "lint:ui": "nx lint ui",
+    "lint:jungle-ui": "nx lint jungle-ui",
     "*** Storybook ***": "",
     "storybook:jungle-ui": "nx storybook jungle-ui",
     "build:storybook:jungle-ui": "nx build-storybook jungle-ui --coverage --onlyChanged --config ./libs/jungle-ui/jest.config.ts",
     "*** CI ***": "",
     "affected:test:coverage": "nx affected --target=test --coverage --parallel",
-    "affected:build": "nx affected --target=build --parallel"
+    "affected:build": "nx affected --target=build --parallel",
+    "affected:lint": "nx affected --target=lint --parallel --exclude=jungle-ui-e2e,ui-e2e"
   },
   "private": true,
   "dependencies": {
