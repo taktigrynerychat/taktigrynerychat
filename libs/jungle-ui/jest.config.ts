@@ -1,6 +1,6 @@
-module.exports = {
+export default {
   displayName: 'jungle-ui',
-  preset: '../../jest.preset.ts',
+  preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/test-setup.ts'],
   globals: {
     'ts-jest': {
