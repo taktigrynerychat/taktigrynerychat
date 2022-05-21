@@ -20,8 +20,8 @@
     "storybook:jungle-ui": "nx storybook jungle-ui",
     "build:storybook:jungle-ui": "nx build-storybook jungle-ui --coverage --onlyChanged --config ./libs/jungle-ui/jest.config.ts",
     "*** CI ***": "",
-    "affected:test:coverage": "nx affected --target test --coverage --parallel",
-    "affected:build": "nx affected --target build --parallel"
+    "affected:test:coverage": "nx affected --target=test --coverage --parallel",
+    "affected:build": "nx affected --target=build --parallel"
   },
   "private": true,
   "dependencies": {
