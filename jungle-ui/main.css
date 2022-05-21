@@ -1,0 +1,26 @@
+:root {
+  --jui-background-color: #fff;
+  --jui-font-color: #25262f;
+}
+:root *[data-jui-theme=dark] {
+  --jui-background-color: #25262f;
+  --jui-font-color: #fff;
+}
+:root *[data-jui-theme=light] {
+  --jui-background-color: #fff;
+  --jui-font-color: #25262f;
+}
+* {
+  box-sizing: border-box;
+}
+*:before, *:after {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  background: var(--jui-background-color);
+  color: var(--jui-font-color);
+}
