@@ -52,9 +52,11 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
+          base: main
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: release
           title: 'Release/${{ github.event.inputs.mode }}'
+          delete-branch: true
 
       - name: Build Storybook
         run: npm run build:storybook:jungle-ui
