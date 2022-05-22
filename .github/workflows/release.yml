@@ -23,6 +23,11 @@ jobs:
     needs: [ install ]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js and Cache
+        uses: ./.github/actions/nodejs
+
       - name: Bump version and build
         run: npm run pre-publish:patch
 
