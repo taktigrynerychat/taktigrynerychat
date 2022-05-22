@@ -1,7 +1,16 @@
 {
   "name": "@jungle-ui/kit",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Jungle UI Components Library",
+  "homepage": "https://taktigrynerychat.me/jungle-ui",
+  "author": {
+    "name": "Vladislav Rusakov",
+    "email": "taktigrynerychat@yandex.ru"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vddastranger/taktigrynerychat/tree/main/libs/jungle-ui"
+  },
   "keywords": [
     "angular",
     "kit",
@@ -10,8 +19,9 @@
     "directive"
   ],
   "peerDependencies": {
-    "@angular/common": "^13.3.0",
-    "@angular/core": "^13.3.0"
+    "@angular/common": ">=9.0.0",
+    "@angular/core": ">=9.0.0",
+    "rxjs": ">=6.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
