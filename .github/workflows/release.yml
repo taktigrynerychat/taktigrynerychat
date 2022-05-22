@@ -1,18 +1,16 @@
-name: CD
+name: publish
 
 on:
   push:
     branches:
-      - main
-      - release
+      - 'release/**'
 
 permissions:
   contents: write
 
 jobs:
-  deploy:
-    name: Deploy
-    concurrency: ci-${{ github.ref }}
+  install:
+    name: Install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,7 +18,20 @@ jobs:
       - name: Setup Node.js and Cache
         uses: ./.github/actions/nodejs
 
-      - name: Build Storybook JungleUI
+  build:
+    name: Build
+    needs: [ install ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bump version and build
+        run: npm run pre-publish:patch
+
+      - name: Publish package
+        run: npm run publish:jungle-ui
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build Storybook
         run: npm run build:storybook:jungle-ui
 
       - name: Deploy
@@ -28,5 +39,6 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: dist/storybook # The folder the action should deploy.
+
 
 
