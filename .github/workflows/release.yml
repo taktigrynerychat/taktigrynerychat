@@ -28,6 +28,10 @@ jobs:
       - name: Git config
         run: |
           git config user.name "vddastranger"
+          git checkout main
+          git pull
+          git checkout -B release
+          git push --set-upstream origin release
 
       - name: Setup Node.js and Cache
         uses: ./.github/actions/nodejs
@@ -42,10 +46,7 @@ jobs:
 
       - name: Git push
         run: |
-          git config user.name "vddastranger"
-          git checkout main
-          git pull
-          git checkout -B release
+          git checkout release
           git add .
           git commit -m 'release: new ${{ github.event.inputs.mode }} library version' --no-verify
           git push --set-upstream origin release
