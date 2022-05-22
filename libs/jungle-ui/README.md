@@ -1,10 +1,13 @@
 # @jungle-ui/kit
 docs: [taktigrynerychat.me/jungle-ui](https://taktigrynerychat.me/jungle-ui/)
 
-[![CI](https://github.com/vddastranger/taktigrynerychat/actions/workflows/ci.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/vddastranger/taktigrynerychat/actions/workflows/ci.yml)
-[![CD](https://github.com/vddastranger/taktigrynerychat/actions/workflows/cd.yml/badge.svg?branch=main&event=push)](https://github.com/vddastranger/taktigrynerychat/actions/workflows/cd.yml)
 [![npm version](https://img.shields.io/npm/v/@jungle-ui/kit.svg)](https://www.npmjs.com/package/@jungle-ui/kit)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@jungle-ui/kit)](https://bundlephobia.com/result?p=@jungle-ui/kit)
+
+[![CI](https://github.com/vddastranger/taktigrynerychat/actions/workflows/ci.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/vddastranger/taktigrynerychat/actions/workflows/ci.yml)
+[![CD](https://github.com/vddastranger/taktigrynerychat/actions/workflows/cd.yml/badge.svg?branch=main&event=push)](https://github.com/vddastranger/taktigrynerychat/actions/workflows/cd.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vddastranger_taktigrynerychat&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=vddastranger_taktigrynerychat)
+
 > 🧱 _Angular-based component library for building awesome UI interfaces._
 >
 > 🔥 It is the main set of components used to build Jungle UI based Angular applications
