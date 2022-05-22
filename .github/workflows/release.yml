@@ -54,6 +54,7 @@ jobs:
           draft: false
           prerelease: false
 
+
       - name: Git push
         run: git push
 
