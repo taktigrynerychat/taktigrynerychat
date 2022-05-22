@@ -56,7 +56,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: release
           title: 'Release/${{ github.event.inputs.mode }}'
-          delete-branch: true
 
       - name: Build Storybook
         run: npm run build:storybook:jungle-ui
