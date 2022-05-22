@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 jobs:
-  install:
-    name: Install
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,15 +18,8 @@ jobs:
       - name: Setup Node.js and Cache
         uses: ./.github/actions/nodejs
 
-  build:
-    name: Build
-    needs: [ install ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup Node.js and Cache
-        uses: ./.github/actions/nodejs
+      - name: Git config
+        run: git config user.name "vddastranger"
 
       - name: Bump version and build
         run: npm run pre-publish:patch
