@@ -19,14 +19,15 @@ jobs:
       - name: Setup Node.js and Cache
         uses: ./.github/actions/nodejs
 
-      - name: Derive appropriate SHAs for base and head for nx affected commands
-        uses: nrwl/nx-set-shas@v2
 
   build:
     name: Build
     needs: [ install ]
     runs-on: ubuntu-latest
     steps:
+      - name: Derive appropriate SHAs for base and head for nx affected commands
+        uses: nrwl/nx-set-shas@v2
+
       - name: Build Affected Apps
         run: npm run affected:build --base=${{ env.NX_BASE }}
 
@@ -35,6 +36,9 @@ jobs:
     needs: [ install ]
     runs-on: ubuntu-latest
     steps:
+      - name: Derive appropriate SHAs for base and head for nx affected commands
+        uses: nrwl/nx-set-shas@v2
+
       - name: Test Affected Apps
         run: npm run affected:test:coverage --base=${{ env.NX_BASE }}
 
@@ -49,6 +53,9 @@ jobs:
     needs: [ install ]
     runs-on: ubuntu-latest
     steps:
+      - name: Derive appropriate SHAs for base and head for nx affected commands
+        uses: nrwl/nx-set-shas@v2
+
       - name: Lint Affected Apps
         run: npm run affected:lint --base=${{ env.NX_BASE }}
 
