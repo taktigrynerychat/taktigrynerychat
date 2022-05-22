@@ -1,6 +1,6 @@
 {
   "name": "taktigrynerychat",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -34,7 +34,7 @@
     "copy-license": "copy libs/jungle-ui/LICENSE dist/libs/jungle-ui",
     "copy-changelog": "copy libs/jungle-ui/Changelog.md dist/libs/jungle-ui",
     "copy-files": "run-s copy-readme copy-license",
-    "build:jungle-ui:package": "npm run build:jungle-ui && npm run copy-files && cd dist/libs/jungle-ui && npm pack",
+    "build:jungle-ui:package": "npm run build:jungle-ui && cd dist/libs/jungle-ui && npm pack",
     "publish:jungle-ui": "npm publish --access public dist/libs/jungle-ui",
     "*** Versioning ***": "",
     "bump-version:major": "npm version major --force && cd libs/jungle-ui && npm version major --force",
