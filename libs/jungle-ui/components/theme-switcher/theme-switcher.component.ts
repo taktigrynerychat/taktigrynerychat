@@ -5,23 +5,35 @@ import { BehaviorSubject } from 'rxjs';
 import { debounceTime, filter, skip, tap } from 'rxjs/operators';
 import { JUI_DEFAULT_THEME_TOKEN, JUI_THEMES_TOKEN, JuiThemes } from './theme-switcher.config';
 
+/** Theme switcher component */
 @Component({
   selector: 'jui-theme-switcher',
   template: '',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class JuiThemeSwitcherComponent implements OnChanges, OnInit {
-  @Input()
-  public theme: JuiThemes | number = this.defaultTheme;
-  @Input()
-  public themedWrapperSelector: string = 'body';
-  @Input()
-  public transition: number = 0;
+  /**
+   * Applied app theme
+   * @default 'JUI_DEFAULT_THEME_TOKEN'
+   * */
+  @Input() public theme: JuiThemes | number = this.defaultTheme;
+  /**
+   * Wrapper selector to apply theme variables
+   * @default 'body'
+   * */
+  @Input() public themedWrapperSelector: string = 'body';
+  /**
+   * Transition to apply on wrapper element
+   * @default 0
+   * */
+  @Input() public transition: number = 0;
 
+  /** @ignore */
   private currentTheme: JuiThemes | number;
+  /** @ignore */
   private readonly themeChange$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-
+  /** @ignore */
   public get wrapperElement(): HTMLElement {
     return this.document.querySelector(this.themedWrapperSelector);
   }
@@ -33,6 +45,7 @@ export class JuiThemeSwitcherComponent implements OnChanges, OnInit {
   ) {
   }
 
+  /** @ignore */
   public ngOnChanges(changes: SimpleChanges): void {
     const theme: JuiThemes | number = changes['theme']?.currentValue;
 
@@ -48,14 +61,17 @@ export class JuiThemeSwitcherComponent implements OnChanges, OnInit {
     }
   }
 
+  /** @ignore */
   public ngOnInit(): void {
     this.transition && this.addTransition();
   }
 
+  /** @ignore */
   private getThemeClass(theme: JuiThemes): string {
     return this.themes.get(theme);
   }
 
+  /** @ignore */
   private addTransition(): void {
     this.themeChange$
       .pipe(
